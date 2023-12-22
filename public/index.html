@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mango Image Upload</title>
+</head>
+<body>
+  <h1>Mango Image Upload And Classify The Ripeness</h1>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required>
+    <button type="submit">Upload Image And Classify</button>
+  </form>
+
+<!-- Display the processed image -->
+<div id="result">
+  <p id="resultText"></p>
+  <img id="processedImage" src="" alt="Processed Image">
+</div>
+
+<script>
+  document.querySelector('form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+
+    try {
+      const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      // Display the result
+      document.getElementById('resultText').innerText = `${data.result}`;
+
+      // Display the processed image with a cache-busting timestamp
+      const timestamp = new Date().getTime();
+      document.getElementById('processedImage').src = `${window.location.origin}/${data.imagePath}?timestamp=${timestamp}`;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  });
+</script>
+
+</body>
+</html>
