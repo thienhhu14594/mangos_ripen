@@ -16,7 +16,7 @@ III. Usage
     this command line
         node server.js
     2. From the terminal, an IPv4 adress is given, access to the web from
-    browser by the given IPv4 adress
+    browser by the given IPv4 adress (Ex: 192.x.x.x:3000)
     3. Upload the image and the web application will return the result
     detection(image) and the ripeness classification result(if possible)
 
