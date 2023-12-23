@@ -67,7 +67,7 @@ else:
     # Calculate the result and give predict on ripeness
     if in_top1 == 0:
         predict = "Unripe Mango"
-    elif percentage_yellow_lab > 60:
+    elif percentage_yellow_lab > 55: # Adjust the color percentage to determine fully ripe or partially ripe, current best rate is 55%
         predict = "Ripe Mango"
     else:
         predict = "Partially Ripe Mango"

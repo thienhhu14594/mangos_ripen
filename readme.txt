@@ -1,4 +1,4 @@
-        MANGO RIPENESS LEVEL CLASSIFICATION
+     MANGO RIPENESS LEVEL CLASSIFICATION
 
 I. Desciption
     This project aim to a simple web application to let people upload the
